@@ -4,19 +4,18 @@ import pandas as pd
 import sqlalchemy
 from sqlalchemy import create_engine
 
-# Test1: Validate if a string was returned
+# Test1: Validate if an integer was returned
 # Test2: Validate if the news is the most recent
-# Test3: Validate if the request passed through
 def getRecentNewsID():
     news_url = 'https://hacker-news.firebaseio.com/v0/newstories.json?print=pretty'
     r = requests.get(news_url)
-    recent = str(r.json()[0])
+    recent = r.json()[0]
     return recent
 
 # Test1: Validate if a dictionary was returned
 # Test2: Validate if the get request passed through
 def getRecentNewsStory(recent_ID):  
-    story_url = 'https://hacker-news.firebaseio.com/v0/item/' + recent_ID + '.json?print=pretty'
+    story_url = 'https://hacker-news.firebaseio.com/v0/item/' + str(recent_ID) + '.json?print=pretty'
     x = requests.get(story_url)
     details = x.json()
     return details
@@ -30,6 +29,8 @@ def convertToDataframe(recent_story):
 recent_ID = getRecentNewsID()
 recent_story = getRecentNewsStory(recent_ID)
 story_dataframe = convertToDataframe(recent_story)
+print(story_dataframe[0]['descendants'])
 engine = create_engine('mysql://root:codio@localhost/hackernews')
 story_dataframe.to_sql('Most_recent_news_story', con=engine, if_exists='replace', index=False)
+
 
