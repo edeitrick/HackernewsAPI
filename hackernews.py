@@ -28,8 +28,8 @@ def convertToDataframe(recent_story):
 
 recent_ID = getRecentNewsID()
 recent_story = getRecentNewsStory(recent_ID)
+print(recent_story)
 story_dataframe = convertToDataframe(recent_story)
-print(story_dataframe[0]['descendants'])
 engine = create_engine('mysql://root:codio@localhost/hackernews')
 story_dataframe.to_sql('Most_recent_news_story', con=engine, if_exists='replace', index=False)
 
