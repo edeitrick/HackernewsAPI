@@ -5,15 +5,15 @@ jobs:
   unit-tests:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
 
       - name: Setup python
-        uses: actions/setup-python@v3
+        uses: actions/setup-python@v2
         with:
           python-version: 3.6
 
       - name: Install tools
-        run: python -m pip3 install --upgrade pip3 pytest requests pandas sqlalchemy mysqlclient
+        run: python3 -m pip install --upgrade pip pytest requests pandas sqlalchemy mysqlclient 
 
       - name: Test with unittest
         run: |
