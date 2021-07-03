@@ -4,7 +4,7 @@ from hackernews import getRecentNewsID, getRecentNewsStory, convertToDataframe
 
 class Test(unittest.TestCase):
     def test_getRecentNewsID(self):
-        self.assertAlmostEqual(getRecentNewsID(), 27694114, delta = 10000)
+        self.assertAlmostEqual(getRecentNewsID(), 27694114, delta = 70000)
     
     
     def test_getRecentNewsStory(self):
