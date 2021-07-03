@@ -11,9 +11,11 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: 3.6
+      - name: Installing client
+        run: pip install mysqlclient
 
       - name: Install tools
-        run: python -m pip install --upgrade pip pytest mysql-server mysqlclient requests pandas sqlalchemy
+        run: python -m pip install --upgrade pip pytest requests pandas sqlalchemy
         
       - name: Test with unittest
         run: |
