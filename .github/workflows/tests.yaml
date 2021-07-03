@@ -13,7 +13,8 @@ jobs:
           python-version: 3.6
 
       - name: Install tools
-        run: python3 -m pip install --upgrade pip pytest requests pandas sqlalchemy mysqlclient 
+        run: python -m pip install --upgrade pip pytest requests pandas sqlalchemy
+        run: pip install mysqlclient
 
       - name: Test with unittest
         run: |
