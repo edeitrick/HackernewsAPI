@@ -30,7 +30,6 @@ recent_ID = getRecentNewsID()
 recent_story = getRecentNewsStory(recent_ID)
 print(recent_story)
 story_dataframe = convertToDataframe(recent_story)
-engine = create_engine('mysql://root:codio@localhost/hackernews')
-story_dataframe.to_sql('Most_recent_news_story', con=engine, if_exists='replace', index=False)
+story_dataframe.to_sql('Most_recent_news_story', con=create_engine('mysql://root:codio@localhost/hackernews'), if_exists='replace', index=False)
 
 
