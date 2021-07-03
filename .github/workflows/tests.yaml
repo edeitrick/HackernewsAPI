@@ -11,13 +11,14 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: 3.6
+      
+      - name: Trying something
+        run:  service mysql start
+
 
       - name: Install tools
         run: python -m pip install --upgrade pip pytest requests pandas sqlalchemy mysqlclient
         
-      - name: Installing xampp
-        run:  python -m pip install Xampp
-
       - name: Test with unittest
         run: |
           python3 -m unittest test.py
