@@ -13,7 +13,7 @@ jobs:
           python-version: 3.6
 
       - name: Install tools
-        run: python -m pip install --upgrade pip pytest requests pandas sqlalchemy create_engine
+        run: python -m pip install --upgrade pip pytest requests pandas sqlalchemy MySQLdb
 
       - name: Test with unittest
         run: |
