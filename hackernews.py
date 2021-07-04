@@ -29,6 +29,6 @@ def convertToDataframe(recent_story):
 recent_ID = getRecentNewsID()
 recent_story = getRecentNewsStory(recent_ID)
 story_dataframe = convertToDataframe(recent_story)
-story_dataframe.to_sql('Most_recent_news_story', con=create_engine('mysql://root:codio@127.0.0.1/hackernews'), if_exists='replace', index=False)
+story_dataframe.to_sql('Most_recent_news_story', con=create_engine('mysql://root:codio@localhost/hackernews'), if_exists='replace', index=False)
 
 
