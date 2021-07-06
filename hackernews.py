@@ -4,6 +4,7 @@ import pandas as pd
 import sqlalchemy
 from sqlalchemy import create_engine
 
+
 # Test1: Validate if an integer was returned
 # Test2: Validate if the news is the most recent
 def getRecentNewsID():
@@ -22,8 +23,8 @@ def getRecentNewsStory(recent_ID):
 
 # Test1: Validate if the dataframe was created
 def convertToDataframe(recent_story):
-  detframe = pd.DataFrame.from_dict(recent_story, orient='index')
-  return detframe
+    detframe = pd.DataFrame.from_dict(recent_story, orient='index')
+    return detframe
 
 
 recent_ID = getRecentNewsID()
