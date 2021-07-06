@@ -26,10 +26,11 @@ def convertToDataframe(recent_story):
     detframe = pd.DataFrame.from_dict(recent_story, orient='index')
     return detframe
 
+def main():
+    recent_ID = getRecentNewsID()
+    recent_story = getRecentNewsStory(recent_ID)
+    story_dataframe = convertToDataframe(recent_story)
+    story_dataframe.to_sql('Most_recent_news_story', con=create_engine('mysql://root:codio@localhost/hackernews'), if_exists='replace', index=False)
 
-recent_ID = getRecentNewsID()
-recent_story = getRecentNewsStory(recent_ID)
-story_dataframe = convertToDataframe(recent_story)
-story_dataframe.to_sql('Most_recent_news_story', con=create_engine('mysql://root:codio@localhost/hackernews'), if_exists='replace', index=False)
-
-
+if __name__ == "__main__":
+    main()
